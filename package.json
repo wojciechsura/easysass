@@ -6,6 +6,10 @@
     "galleryBanner": {
         "theme": "light"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wojciechsura/easysass.git"
+    },
     "version": "0.0.1",
     "publisher": "spook",
     "homepage": "http://spooksoft.pl",
