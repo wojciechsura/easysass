@@ -69,10 +69,14 @@ var CompileSassExtension = function() {
 
         OnSave: function (document) {
 
-            if (document.fileName.toLowerCase().endsWith('.scss') ||
-                document.fileName.toLowerCase().endsWith('.sass')) {
+            var configuration = vscode.workspace.getConfiguration('easysass');
+            if (configuration.compileAfterSave) {
+                
+                if (document.fileName.toLowerCase().endsWith('.scss') ||
+                    document.fileName.toLowerCase().endsWith('.sass')) {
 
-                compileFile(document.fileName);                
+                    compileFile(document.fileName);                
+                }
             }
         },
         CompileAll: function() {

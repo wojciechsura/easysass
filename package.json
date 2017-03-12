@@ -10,7 +10,7 @@
         "type": "git",
         "url": "https://github.com/wojciechsura/easysass.git"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "spook",
     "homepage": "http://spooksoft.pl",
     "engines": {
@@ -28,6 +28,11 @@
             "type": "object",
             "title": "EasySass configuration",
             "properties": {
+                "easysass.compileAfterSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically compile SASS/SCSS file after saving"
+                },
                 "easysass.generateExpanded": {
                     "type": "boolean",
                     "default": true,
