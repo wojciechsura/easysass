@@ -10,7 +10,7 @@
         "type": "git",
         "url": "https://github.com/wojciechsura/easysass.git"
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "spook",
     "homepage": "http://spooksoft.pl",
     "engines": {
@@ -42,6 +42,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Generate minified CSS from the SASS/SCSS file."
+                },
+                "easysass.excludeRegex": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Regular expression for filenames (excluding path) excluded from building. Leave empty to disable."
                 }
             }
         },

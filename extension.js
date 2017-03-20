@@ -2,6 +2,7 @@ var vscode = require('vscode');
 var fs = require('fs');
 var replaceExt = require('replace-ext');
 var compileSass = require('./lib/sass.node.spk.js');
+var pathModule = require('path');
 
 var CompileSassExtension = function() {
 
@@ -63,6 +64,12 @@ var CompileSassExtension = function() {
         }
     }
 
+    function checkExclude(filename) {
+        
+        var configuration = vscode.workspace.getConfiguration('easysass');
+        return configuration.excludeRegex.length > 0 && new RegExp(configuration.excludeRegex).test(filename);
+    }
+
     // Public -----------------------------------------------------------------
 
     return {
@@ -70,19 +77,34 @@ var CompileSassExtension = function() {
         OnSave: function (document) {
 
             var configuration = vscode.workspace.getConfiguration('easysass');
+            var filename = pathModule.basename(document.fileName);
+
             if (configuration.compileAfterSave) {
                 
                 if (document.fileName.toLowerCase().endsWith('.scss') ||
                     document.fileName.toLowerCase().endsWith('.sass')) {
 
-                    compileFile(document.fileName);                
+                    if (!checkExclude(filename)) {
+                        compileFile(document.fileName);                
+                    } else {
+                        outputChannel.appendLine("File " + document.fileName + " is excluded from building to CSS. Check easysass.excludeRegex setting.");
+                    }
                 }
             }
         },
         CompileAll: function() {
 
+            var configuration = vscode.workspace.getConfiguration('easysass');
+
             vscode.workspace.findFiles("**/*.s[ac]ss").then(function(files) {
                 for (var i = 0; i < files.length; i++) {
+                    
+                    var filename = pathModule.basename(files[i].fsPath);
+                    if (checkExclude(filename)) {
+
+                        outputChannel.appendLine("File " + filename + " is excluded from building to CSS. Check easysass.excludeRegex setting.");
+                        continue;
+                    }
                     
                     compileFile(files[i].fsPath);
                 }
