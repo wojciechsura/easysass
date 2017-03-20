@@ -19,11 +19,12 @@ This extension contributes the following settings:
 * `easysass.compileAfterSave`: enable or disable automatic compilation after saving
 * `easysass.generateExpanded`: generate expanded, human-readable CSS file (file.scss -> file.css)
 * `easysass.generateMinified`: generate minified CSS file (file.scss -> file.min.css)
+* `easysass.excludeRegex`: exclude files from compilation with regular expression
 
 ## Release Notes
 
-### 0.0.1
+### 0.0.3
 
-Initial release of EasySass
+You may exclude files from compilation by regex - see
 
 **Enjoy!**
