@@ -33,20 +33,29 @@
                     "default": true,
                     "description": "Automatically compile SASS/SCSS file after saving"
                 },
-                "easysass.generateExpanded": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Generate human-readable CSS from the SASS/SCSS file."
-                },
-                "easysass.generateMinified": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Generate minified CSS from the SASS/SCSS file."
+                "easysass.formats": {
+                    "type": "array",
+                    "default": [
+                        {
+                            "format": "expanded",
+                            "extension": ".css"
+                        },
+                        {
+                            "format": "compressed",
+                            "extension": ".min.css"
+                        }
+                    ],
+                    "description": "Define format(s) for outputted css files. Use \"nested\", \"expanded\", \"compact\" or \"compressed\" as a format."
                 },
                 "easysass.excludeRegex": {
                     "type": "string",
                     "default": "",
                     "description": "Regular expression for filenames (excluding path) excluded from building. Leave empty to disable."
+                },
+                "easysass.targetDir": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Target directory for generated files. If relative, will be based on currently opened folder in VS Code."
                 }
             }
         },
