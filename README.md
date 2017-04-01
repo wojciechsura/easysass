@@ -17,8 +17,8 @@ Automatically compiles SASS/SCSS files to .css and .min.css upon saving. You may
 This extension contributes the following settings:
 
 * `easysass.compileAfterSave`: enable or disable automatic compilation after saving
-* `easysass.generateExpanded`: generate expanded, human-readable CSS file (file.scss -> file.css)
-* `easysass.generateMinified`: generate minified CSS file (file.scss -> file.min.css)
+* `easysass.formats`: specify extensions and formats for exported files.
+* `easysass.targetDir`: define target directory for generated files.
 * `easysass.excludeRegex`: exclude files from compilation with regular expression
 
 ## Release Notes
