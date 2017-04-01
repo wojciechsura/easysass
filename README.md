@@ -23,8 +23,8 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.3
+### 0.0.4
 
-You may exclude files from compilation by regex - see
+You may now define target folder for generated CSS files. Also, target formats and extension (for instance, .min.css) are also configurable.
 
 **Enjoy!**
