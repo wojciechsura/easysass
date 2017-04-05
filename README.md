@@ -23,8 +23,8 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.4
-
-You may now define target folder for generated CSS files. Also, target formats and extension (for instance, .min.css) are also configurable.
+### [0.0.5]
+- Fixed bug with global paths in import directive
+- Added support for tilde character in import directive (will resolve to currently opened folder in VS Code)
 
 **Enjoy!**
